@@ -1,0 +1,88 @@
+Serializers
+
+1. Serializers nima ?
+2. Serializers nima uchun ishlatiladi va nima imkoniyatlari bor ?
+3. Qanday turdagi serializer lar bor va ularni vazifalari ?
+4. Related field larni qanday qilib ko'rsatish mumkin ?
+5. Field ni nomini qanday o'zgartirish mumkin ?
+6. Biror ni funksiyani field sifatida qanday qilib bersa bo'ladi ?
+7. Kelgan malumotlarni qanday qilib validate qilish mumkin  ?
+8. Field and object level validation qanday bo'ladi ?
+9. clean method nima va u nima uchun ishlatiladi ?
+10. validated_data qachon olish mumkin ?
+11. create update save methodlari haqida gapirib bering ?
+12. serializers da validators atributeni vazifani nima va qanday built ni validatorlar bor ?
+    UniqueTogetherValidator
+    UniqueValidator
+    UniqueForMonthValidator
+    UniqueForYearValidator
+    UniqueForDateValidator
+13. Qanday qilib men o'zim validator yozsam bo'ladi ?
+14. Class based validators and function based validators
+15. Model serializer haqida hammasi >
+
+
+Main Methods
+    - __init__
+    - create(validated_data)
+    - update(instance, validated_data)
+    - save()
+    - is_valid
+    - validate(attrs)
+    - validate_field_name(value)
+    - data
+    - errors
+
+
+Validators
+
+
+
+
+
+Lesson works
+- Create an apis for controlling blog project
+
+- Sizda userlar va bloglar va comment lar modellari bor bo'ladi
+- Siz shunda quyidagi api larni yaratishingiz kerak
+
+Users
+- /users -> POST, GET -> hamma userlarni olish va yangi user qo'shish
+- /users/<int:pk> -> GET, PUT, PATCH, DELETE -> userni olish, o'chirish va o'zgartirish
+
+
+Blogs
+- /blogs -> POST, GET -> hamma bloglarni olish va yangi blog qo'shish
+- /blogs/<int:pk> -> GET, PUT, PATCH, DELETE -> blogni olish, o'chirish va o'zgartirish
+- /blogs/users/<int:pk> -> aynan mana shu userni bloglarini ko'rsatish
+
+Comments
+- /comments -> GET, POST -> hamma komentlarni olish va yangi qo'shish
+    Bunda post qilayotganda body da user_id va blog_id ni ham kiritadi
+- /comments/<int:pk> -> GET, PUT, PATCH, DELETE -> comment olish, o'chirish va o'zgartirish
+    Bunda comment ni o'chirish va o'zgartirish uchun bodyda user_id ni ham beradi
+    va siz uni tekshirishingiz kerak, bu comment aynan shu odamnikini yo'qmi
+
+
+Homework
+
+Registering to meetings
+
+Meetings
+- /meetings -> POST, GET -> yangi meeting qo'sish va hamma meetinglar ro'yxati
+- /meetings/<int:pk> -> GET, PUT, PATCH, DELETE -> meetingni olish, o'chirish va o'zgartirish
+
+Registering to meetings
+- /meetings/<int:pk>/register -> POST, GET -> Meetingga ro'yxatdan o'tish, va shu meetingga ro'yxatdan
+                                        o'tganlarni ko'rish
+                                 Bodyda userni malumotlari so'raladi
+- /meetings/<int:pk>/unregister
+     Bodyda userni gmailini olasiz va shu id li meetingda uni o'chirib tashlaysiz
+
+
+Bunda userni gmail bilan ro'yxatdan o'tkazish kerak.
+Meeting modelda meetingni qaysi kunda bo'lishi ham bo'lishi shart
+Bitta gmail li odam bitta vaqtda bir martta ro'yxatdan o'tishi mumkin
+
+
+
